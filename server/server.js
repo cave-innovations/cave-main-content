@@ -3,7 +3,8 @@ const app = express();
 const db = require('../database/database.js')
 app.use(express.static(__dirname + '/../client/dist'));
 app.use(express.urlencoded({ extended: true }));
-app.listen(3000, () => { console.log('Now listening port 3000.'); });
+const port = 3000;
+app.listen(port, () => { console.log(`Now listening port ${port}.`); });
 app.get('/api/place', (req, res) => {
   const arrSelect = [];
   while (arrSelect.length < 12) {
@@ -39,7 +40,6 @@ app.get('/api/todo', (req, res) => {
       res.sendStatus(400);
     }else{
       res.status(200).send(results);
-      console.log('sucess!');
     }
   })
 })
