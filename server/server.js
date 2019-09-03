@@ -16,7 +16,6 @@ app.get('/api/place', (req, res) => {
   }
   db.query("SELECT * FROM places WHERE place_id in (?)", [arrSelect], (err, results) => {
     if (err){
-      console.log(err);
       res.sendStatus(400);
     }else{
       res.status(200).send(results);
@@ -40,6 +39,7 @@ app.get('/api/todo', (req, res) => {
       res.sendStatus(400);
     }else{
       res.status(200).send(results);
+      console.log('sucess!');
     }
   })
 })
